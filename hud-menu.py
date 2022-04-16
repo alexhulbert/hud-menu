@@ -76,7 +76,7 @@ def try_appmenu_interface(window_id):
   if 'dmenu' in sys.argv:
     menu_cmd = subprocess.Popen(['dmenu', '-i', '-l', '15'], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
   else:
-    menu_cmd = subprocess.Popen(['rofi', '-dmenu', '-i', '-location', '1', '-width', '100', '-l', '15', '-scroll-method', '1', '-color-enabled', '-color-window', "#242424, #ffffff", '-color-normal', "#242424, #FFFFFF, #242424, #398ee7", '-separator-style', 'solid', '-p', ''], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    menu_cmd = subprocess.Popen(['rofi', '-dmenu', '-i', '-scroll-method', '1', '-p', ''], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
   menu_cmd.stdin.write(menu_string.encode('utf-8'))
   menu_result = menu_cmd.communicate()[0].decode('utf8').rstrip()
   menu_cmd.stdin.close()
